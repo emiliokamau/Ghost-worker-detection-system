@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioGuard | Anti-Corruption Verification System</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="brand">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-fingerprint"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>BioGuard</h1>
+                    <span>Secure Verification</span>
+                </div>
+            </div>
+
+            <ul class="nav-links">
+                <li class="nav-item active" data-tab="dashboard">
+                    <a href="#"><i class="fa-solid fa-chart-pie"></i> Dashboard</a>
+                </li>
+                <li class="nav-item" data-tab="registration">
+                    <a href="#"><i class="fa-solid fa-user-plus"></i> Registration</a>
+                </li>
+                <li class="nav-item" data-tab="verification">
+                    <a href="#"><i class="fa-solid fa-id-card-clip"></i> Verification</a>
+                </li>
+                <li class="nav-item" data-tab="employees">
+                    <a href="#"><i class="fa-solid fa-users"></i> Employees</a>
+                </li>
+                <li class="nav-item" data-tab="fraud">
+                    <a href="#"><i class="fa-solid fa-shield-halved"></i> Fraud Alerts</a>
+                </li>
+                <li class="nav-item" data-tab="settings">
+                    <a href="#"><i class="fa-solid fa-gear"></i> Settings</a>
+                </li>
+            </ul>
+
+            <div class="user-profile">
+                <img src="https://ui-avatars.com/api/?name=Admin+User&background=0D8ABC&color=fff" alt="User">
+                <div class="user-info">
+                    <h4>Admin User</h4>
+                    <span>System Administrator</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="top-bar">
+                <div class="page-title">
+                    <h2 id="current-page-title">Dashboard</h2>
+                    <span id="current-date">Loading...</span>
+                </div>
+
+                <div class="top-actions">
+                    <div class="search-bar">
+                        <i class="fa-solid fa-search"></i>
+                        <input type="text" placeholder="Search records...">
+                    </div>
+                    <button class="icon-btn notification-btn">
+                        <i class="fa-solid fa-bell"></i>
+                        <span class="badge">3</span>
+                    </button>
+                    <button class="btn-primary" id="generate-data-btn">
+                        <i class="fa-solid fa-database"></i> Generate Data
+                    </button>
+                </div>
+            </header>
+
+            <!-- Content Views -->
+            <div class="content-wrapper">
+
+                <!-- Dashboard View -->
+                <div id="dashboard-view" class="view active">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon blue">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Total Employees</h3>
+                                <p class="stat-value" id="stat-employees">0</p>
+                                <span class="stat-trend positive"><i class="fa-solid fa-arrow-up"></i> 12% this
+                                    month</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon green">
+                                <i class="fa-solid fa-check-circle"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Verified Today</h3>
+                                <p class="stat-value" id="stat-attendance">0</p>
+                                <span class="stat-trend positive">98% match rate</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon orange">
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Duplicate Alerts</h3>
+                                <p class="stat-value" id="stat-duplicates">0</p>
+                                <span class="stat-trend negative">Action required</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon purple">
+                                <i class="fa-solid fa-ghost"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Ghost Workers</h3>
+                                <p class="stat-value" id="stat-ghosts">0</p>
+                                <span class="stat-trend negative">Potential savings</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-charts">
+                        <div class="chart-container large">
+                            <div class="chart-header">
+                                <h3>Verification Activity</h3>
+                                <select class="chart-filter">
+                                    <option>Last 7 Days</option>
+                                    <option>Last 30 Days</option>
+                                </select>
+                            </div>
+                            <div class="chart-placeholder">
+                                <!-- Chart would go here -->
+                                <div class="bar-chart-mock">
+                                    <div class="bar" style="height: 60%"></div>
+                                    <div class="bar" style="height: 80%"></div>
+                                    <div class="bar" style="height: 45%"></div>
+                                    <div class="bar" style="height: 90%"></div>
+                                    <div class="bar" style="height: 75%"></div>
+                                    <div class="bar" style="height: 85%"></div>
+                                    <div class="bar" style="height: 95%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart-container small">
+                            <div class="chart-header">
+                                <h3>Fraud Risk Distribution</h3>
+                            </div>
+                            <div class="chart-placeholder">
+                                <div class="pie-chart-mock"></div>
+                                <div class="legend">
+                                    <div class="legend-item"><span class="dot low"></span> Low Risk</div>
+                                    <div class="legend-item"><span class="dot medium"></span> Medium Risk</div>
+                                    <div class="legend-item"><span class="dot high"></span> High Risk</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recent-activity">
+                        <h3>Recent Live Verifications</h3>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Employee</th>
+                                        <th>Time</th>
+                                        <th>Method</th>
+                                        <th>Location</th>
+                                        <th>Confidence</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="recent-activity-table">
+                                    <!-- Populated by JS -->
+                                    <tr>
+                                        <td colspan="6" class="text-center">Loading data...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Registration View -->
+                <div id="registration-view" class="view">
+                    <div class="split-layout">
+                        <div class="form-section">
+                            <div class="section-header">
+                                <h3>New Employee Registration</h3>
+                                <p>Enter details and capture biometrics</p>
+                            </div>
+                            <form id="registration-form">
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label>Full Name</label>
+                                        <input type="text" name="name" required placeholder="e.g. John Doe">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>National ID</label>
+                                        <input type="text" name="national_id" required placeholder="ID Number">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Department</label>
+                                        <select name="department">
+                                            <option value="Finance">Finance</option>
+                                            <option value="IT">IT</option>
+                                            <option value="HR">Human Resources</option>
+                                            <option value="Operations">Operations</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Position</label>
+                                        <input type="text" name="position" placeholder="Job Title">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="email" name="email" placeholder="email@gov.ke">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Phone</label>
+                                        <input type="tel" name="phone" placeholder="+254...">
+                                    </div>
+                                </div>
+
+                                <div class="biometric-section">
+                                    <h4>Biometric Capture</h4>
+                                    <div class="capture-options">
+                                        <div class="capture-card" id="photo-capture-card">
+                                            <div class="capture-icon">
+                                                <i class="fa-solid fa-camera"></i>
+                                            </div>
+                                            <span>Facial Photo</span>
+                                            <div class="status-badge pending">Pending</div>
+                                            <input type="file" id="photo-upload" accept="image/*" hidden>
+                                        </div>
+                                        <div class="capture-card" id="fingerprint-capture-card">
+                                            <div class="capture-icon">
+                                                <i class="fa-solid fa-fingerprint"></i>
+                                            </div>
+                                            <span>Fingerprint</span>
+                                            <div class="status-badge pending">Pending</div>
+                                        </div>
+                                    </div>
+                                    <div id="capture-preview" class="hidden">
+                                        <img id="photo-preview" src="" alt="Preview">
+                                    </div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="button" class="btn-secondary">Cancel</button>
+                                    <button type="submit" class="btn-primary">Register Employee</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="info-section">
+                            <div class="info-card">
+                                <div class="icon-header">
+                                    <i class="fa-solid fa-shield-halved"></i>
+                                    <h4>Duplicate Check</h4>
+                                </div>
+                                <p>System automatically checks for duplicates against the national database using
+                                    biometric signatures.</p>
+                                <div id="duplicate-check-status" class="status-box">
+                                    Ready to scan
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Verification View -->
+                <div id="verification-view" class="view">
+                    <div class="verification-container">
+                        <div class="scanner-interface">
+                            <div class="scanner-header">
+                                <h3>Identity Verification</h3>
+                                <p>Scan face or fingerprint to verify</p>
+                            </div>
+
+                            <div class="scanner-viewport">
+                                <div class="scan-overlay"></div>
+                                <div class="camera-feed" id="camera-feed">
+                                    <i class="fa-solid fa-camera"></i>
+                                    <p>Camera inactive</p>
+                                    <button class="btn-primary" id="start-camera">Start Camera</button>
+                                </div>
+                                <img id="verification-preview" class="hidden" src="" alt="Captured">
+                            </div>
+
+                            <div class="scanner-controls">
+                                <button class="btn-icon" id="capture-btn" disabled>
+                                    <div class="shutter"></div>
+                                </button>
+                            </div>
+
+                            <div class="verification-result hidden" id="verification-result">
+                                <div class="result-icon success">
+                                    <i class="fa-solid fa-check"></i>
+                                </div>
+                                <h4>Verification Successful</h4>
+                                <p>Match Confidence: <span class="confidence-score">98.5%</span></p>
+                                <div class="verified-user">
+                                    <img src="" alt="User" id="verified-user-img">
+                                    <div class="details">
+                                        <h5 id="verified-name">John Doe</h5>
+                                        <span id="verified-id">ID: 12345678</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Employees List View -->
+                <div id="employees-view" class="view">
+                    <div class="table-container">
+                        <div class="table-header">
+                            <h3>Employee Database</h3>
+                            <div class="table-actions">
+                                <button class="btn-secondary"><i class="fa-solid fa-filter"></i> Filter</button>
+                                <button class="btn-secondary"><i class="fa-solid fa-download"></i> Export</button>
+                            </div>
+                        </div>
+                        <table class="table full-width">
+                            <thead>
+                                <tr>
+                                    <th>Employee</th>
+                                    <th>Department</th>
+                                    <th>Position</th>
+                                    <th>Registration Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="employees-table-body">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                        <div class="pagination">
+                            <button class="page-btn prev" disabled><i class="fa-solid fa-chevron-left"></i></button>
+                            <span class="page-info">Page 1 of 5</span>
+                            <button class="page-btn next"><i class="fa-solid fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fraud Alerts View -->
+                <div id="fraud-view" class="view">
+                    <div class="fraud-dashboard">
+                        <div class="alert-section">
+                            <h3><i class="fa-solid fa-triangle-exclamation"></i> Active Alerts</h3>
+                            <div class="alert-list" id="fraud-alerts-list">
+                                <!-- Populated by JS -->
+                                <div class="alert-card">
+                                    <div class="alert-header">
+                                        <span class="badge high-risk">High Risk</span>
+                                        <span class="alert-date">Today, 10:23 AM</span>
+                                    </div>
+                                    <h4>Potential Duplicate Identity</h4>
+                                    <p>Biometric match found between <strong>John Doe</strong> and <strong>Jane
+                                            Smith</strong> (92% similarity).</p>
+                                    <div class="alert-actions">
+                                        <button class="btn-sm btn-primary">Investigate</button>
+                                        <button class="btn-sm btn-secondary">Dismiss</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ghost-worker-section">
+                            <h3><i class="fa-solid fa-ghost"></i> Potential Ghost Workers</h3>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Employee</th>
+                                            <th>Days Absent</th>
+                                            <th>Last Seen</th>
+                                            <th>Risk Level</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="ghost-workers-table">
+                                        <!-- Populated by JS -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal-overlay">
+        <div class="login-card">
+            <div class="brand-header">
+                <div class="logo-icon large">
+                    <i class="fa-solid fa-fingerprint"></i>
+                    <input type="text" id="signup-username" required>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="signup-email" required placeholder="admin@example.com">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" id="signup-phone" required placeholder="+254...">
+                </div>
+                <div class="form-group">
+                    <label>New Password</label>
+                    <input type="password" id="signup-password" required>
+                </div>
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input type="password" id="signup-confirm" required>
+                </div>
+                <div id="signup-error" class="error-message"></div>
+                <button type="submit" class="btn btn-success btn-block">Register Admin</button>
+                <div class="auth-toggle">
+                    <a href="#" id="show-login">Back to Login</a>
+                </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="app.js"></script>
+</body>
+
+</html>
